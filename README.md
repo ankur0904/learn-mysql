@@ -41,6 +41,6 @@ CREATE TABLE employee(
     SELECT * FROM employee;
   ```  
 
--    ```bash
+- ```bash
     desc employee;
-    ```
+  ```
