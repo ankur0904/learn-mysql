@@ -74,3 +74,97 @@ O/P:
 +----------+
 2 rows in set (0.00 sec)
 ```
+
+
+### find the department name with the number of employee
+**GROUPBY**
+
+```bash
+SELECT ______ FROM employee GROUP BY ______;
+```
+1. `______` same
+2. `______` if different required use `aggregate` function only.
+
+Solution:
+```bash
+SELECT department,count(department) FROM employee GROUP BY department;
+```
+or
+```bash
+SELECT department,count(*) FROM employee GROUP BY department;
+```
+
+O/P:
+```bash
++-------------+-------------------+
+| department  | count(department) |
++-------------+-------------------+
+| HR          |                 2 |
+| Finance     |                 1 |
+| Engineering |                 1 |
++-------------+-------------------+
+3 rows in set (0.00 sec)
+```
+### find the department where the number of employee is less than 2
+`GROUP BY` + `WHERE` =  X(no)
+`GROUP BY` + `HAVING` = (yes)
+
+```bash
+SELECT department FROM employee GROUP BY department HAVING COUNT(*) < 2;
+```
+O/P:
+```bash
++-------------+
+| department  |
++-------------+
+| Finance     |
+| Engineering |
++-------------+
+2 rows in set (0.00 sec)
+```
+
+Name ???
+```bash
+SELECT emp_name FROM employee WHERE department IN (SELECT department FROM employee GROUP BY department HAVING COUNT(*) < 2);
+```
+O/P:
+```bash
++----------+
+| emp_name |
++----------+
+| b        |
+| c        |
++----------+
+2 rows in set (0.00 sec)
+```
+
+### find the highest salary department wise and name the person who is taking the highest salary
+
+```bash
+SELECT MAX(salary) FROM employee GROUP BY department;
+```
+O\P: 
+```bash
++-------------+
+| MAX(salary) |
++-------------+
+|     1000000 |
+|      100000 |
+|      100000 |
++-------------+
+3 rows in set (0.01 sec)
+```
+
+```bash
+SELECT emp_name FROM employee WHERE salary IN (SELECT MAX(salary) FROM employee GROUP BY department);
+```
+```bash
++----------+
+| emp_name |
++----------+
+| a        |
+| b        |
+| c        |
++----------+
+3 rows in set (0.00 sec)
+```
