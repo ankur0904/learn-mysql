@@ -1,4 +1,5 @@
 Table
+```
 +--------+----------+-------------+---------+
 | emp_id | emp_name | department  | salary  |
 +--------+----------+-------------+---------+
@@ -6,7 +7,7 @@ Table
 |      2 | b        | Finance     |  100000 |
 |      3 | c        | Engineering |  100000 |
 +--------+----------+-------------+---------+
-
+```
 #### find maximum salary from employee table.
 
 ```bash
