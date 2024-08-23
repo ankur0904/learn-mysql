@@ -75,6 +75,20 @@ O/P:
 2 rows in set (0.00 sec)
 ```
 
+### find the third highest salary
+```bash
+SELECT DISTINCT salary FROM employee ORDER BY salary DESC LIMIT 1 OFFSET 2;
+```
+O/P:
+```bash
++--------+
+| salary |
++--------+
+|  10000 |
++--------+
+1 row in set (0.00 sec)
+
+```
 
 ### find the department name with the number of employee
 **GROUPBY**
