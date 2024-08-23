@@ -79,6 +79,8 @@ O/P:
 ```bash
 SELECT DISTINCT salary FROM employee ORDER BY salary DESC LIMIT 1 OFFSET 2;
 ```
+- return a single result (1 in LIMIT) counting from third row in result set (2 in OFFSET) ( 0 indexed )
+
 O/P:
 ```bash
 +--------+
